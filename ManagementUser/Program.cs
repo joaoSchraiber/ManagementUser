@@ -1,9 +1,13 @@
-using Microsoft.EntityFrameworkCore;
 using ManagementUser.Data;
+using ManagementUser.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Injeção de Dependência dos Serviços
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<PerfilService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
